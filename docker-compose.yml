@@ -161,8 +161,7 @@ services:
     image: ${MAYAN_DOCKER_POSTGRES_IMAGE:-postgres}:${MAYAN_DOCKER_POSTGRES_TAG:-13.8-alpine}
     networks:
       - mayan
-    # Enable to allow external access to the database.
-     ports:
+    ports:
       - "5432:5432"
     profiles:
       - postgresql
@@ -313,8 +312,8 @@ services:
     networks:
       - mayan
     # Enable to allow access to the administration interface.
-     ports:
-       - "${MAYAN_RABBITMQ_ADMIN_PORT:-15672}:15672"
+    ports:
+      - "${MAYAN_RABBITMQ_ADMIN_PORT:-15672}:15672"
     profiles:
       - rabbitmq
     restart: unless-stopped
